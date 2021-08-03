@@ -9,15 +9,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 </head>
 <body>
-    <header class="hero is-medium is-danger">
+    <header class="section is-4">
         <div class="hero-body">
-          <p class="title is-1 has-text-centered">
+          <p class="title is-1 has-text-centered has-text-white">
             Project Spaghetti
           </p>
-          <input class="input is-large is-danger" type="text" placeholder="Search Movies/Shows">
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input id="search-input" class="input is-large" type="text" placeholder="Find a Movie/Show">
+            </div>
+            <div class="control">
+              <button id="search-btn" class="button is-large is-danger">
+                Search
+              </button>
+            </div>
+          </div>
         </div>
     </header>
-    <main></main>
+    <main>
+        <section id="search-results" class="container columns">
+          <div id="movie-details" class="movie-details column">
+            <p class="title has-text-left" id="movie-title">
+              Movie/Show Title
+            </p>
+            <p class="has-text-left">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum molestiae numquam provident modi aliquam suscipit molestias ea, dolorum sint obcaecati nisi iure mollitia ipsam blanditiis recusandae delectus natus, commodi quibusdam?
+            </p>
+          </div>
+          <div id="card" class="card column">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-4">Card Test</p>
+                  <p class="subtitle is-6">Another card test</p>
+                </div>
+              </div>
+              <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus nec iaculis mauris.
+              </div>
+            </div>
+          </div>
+        </section>
+    </main>
     <footer></footer>
     <script src="./assets/js/script.js"></script>
 </body>

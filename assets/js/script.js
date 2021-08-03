@@ -1,9 +1,10 @@
-//<<<<<<< HEAD
-//hello world
-//=======
+
 //Variables for search card
-var movieFormEl = document.querySelector("#movie-search-form");
-var movieInputEl = document.querySelector("#movie-name");
+var apiUrl = "http://www.omdbapi.com/?t=" + title + "&apikey=76cc10c6";
+
+fetch("apiUrl")
+    .then(response => response.json())
+    .then(data => console.log(data));
 
 //Function to search
 var formSubmitHandler = function(event){
@@ -12,17 +13,6 @@ var formSubmitHandler = function(event){
     console.log("event");
 }
 //Api Fetch Functionality
-var searchMovies = function () {
-    fetch("http://www.omdbapi.com/?apikey=76cc10c6&").then (function(response){
-        
-    });
-}
-//Search engine code
-
-//In order to integrate functionality within the application, we must create
-//containers in HTML and then pair the ideas with JS variables.
-
-
 
 
 

@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --italy-red: rgb(205, 33, 42);
+    --italy-green: rgb(0, 140, 69);
+    --italy-white: rgb(244, 245, 240);
+}
+
+header {
+    background-color: var(--italy-green);
+}
+
+main {
+    margin-top: 80px;
+}
+
+#search-results {
+    margin: 0 auto;
+}
