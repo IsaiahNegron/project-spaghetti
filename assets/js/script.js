@@ -28,7 +28,7 @@ movieInputEl.addEventListener("click", formSubmitHandler);
 
 var getMovies = function(title) {
     // format the OMDB api url
-    var apiTitleSearch = "https://www.omdbapi.com/?t=" + title + "&apikey=76cc10c6";
+    var apiTitleSearch = "https://www.omdbapi.com/?t=" + title + "&plot=full&apikey=76cc10c6";
 
     fetch(apiTitleSearch).then(response => response.json())
     .then(data => {
@@ -47,10 +47,10 @@ var getMovies = function(title) {
 };
 
 var displayMovieInfo = function (data){
-  //clear old content
- // movieTitleContainer.textContent = "";
+  
   document.getElementById('movie-title').textContent = data.Title
   document.getElementById("movie-plot-text").textContent = data.Plot
+  document.getElementById('rating').textContent = "RATED: " + data.Rated
   document.getElementById("poster").src = data.Poster
 
 };
@@ -59,4 +59,6 @@ var showError = function(title, message){
   document.getElementById('error-title').textContent = title
   document.getElementById('error-message').textContent = message
 
-}
+};
+
+

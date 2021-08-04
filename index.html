@@ -35,24 +35,33 @@
           </article>
         </div>
     </header>
+    <section class="hero is-small is-primary">
+      <div class="hero-body has-background-white hsl(0,0%, 100%) has-text-centered ">
+        <p class="title is-1 has-text-black hsl(0,0%,4%)" id="movie-title">
+          Movie/Show Title
+        </p>
+        <p class="subtitle is-3 has-text-black hsl(0,0%,4%)" id="rating">
+          Rating
+        </p>
+      </div>
+    </section>
     <main>
-        <section id="search-results" class="container columns">
-          <div id="movie-details" class="movie-details column">
-            <p class="title has-text-left" id="movie-title">
-              Movie/Show Title
-            </p>
-          </div>
-          <div id="movie-description" class="movie-details column"> 
-            <p class="has-text-left" id="movie-plot-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem doloribus esse vitae aliquam magnam sint, repellat voluptates debitis porro, iure molestiae commodi voluptatem reiciendis nihil nobis iusto temporibus praesentium possimus?
-            </p>
-          </div>
+        <section id="search-results" class="container columns level">
           <div id="card" class="card column">
-            <div class="card-content">
-              <div class="content">
+            <div class="card-image">
+              <figure class="image is-1by1.5">
                 <img src="" id="poster">
-              </div> 
+              </figure> 
             </div>
+          </div>
+          <div id="movie-description" class="movie-details column" class="is-three-fifths
+          is-offset-one-fifth"> 
+            <h3 class="has-text-left title is-three">
+              Movie Description
+            </h3>
+            <p class="has-text-left" id="movie-plot-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores dignissimos libero aut unde facilis qui mollitia culpa sequi vero error velit sint minus corrupti eos consectetur, ut, recusandae vitae quibusdam?
+            </p>
           </div>
         </section>
     </main>
