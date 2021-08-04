@@ -56,6 +56,7 @@ var displayMovieInfo = function (data){
   document.getElementById('rating').textContent = "RATED: " + data.Rated
   document.getElementById("poster").src = data.Poster
 
+
 };
 var showError = function(title, message){
   document.getElementById("error").classList.remove("hidden");
