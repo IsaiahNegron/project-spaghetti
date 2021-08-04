@@ -14,6 +14,10 @@ header {
     background-color: var(--italy-green);
 }
 
+.hidden{
+    display: none;
+}
+
 main {
     margin-top: 80px;
 }

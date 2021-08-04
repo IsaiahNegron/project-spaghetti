@@ -1,23 +1,62 @@
+//Variables
+var movieInputEl = document.querySelector("#search-btn");
+var searchTermEl = document.querySelector("#search-input");
+var movieTitleContainer = document.querySelector ("#movie-details");
+var movieTitleText = document.querySelector ("#movie-title")
+var moviePlotContainer = document.querySelector("#movie-plot");
+var movieName = searchTermEl.value.trim();
 
-//Variables for search card
-var apiUrl = "http://www.omdbapi.com/?t=" + title + "&apikey=76cc10c6";
 
-fetch("apiUrl")
-    .then(response => response.json())
-    .then(data => console.log(data));
 
-//Function to search
-var formSubmitHandler = function(event){
+//this is the button function!!
+var formSubmitHandler = function(event) {
+    //Prevents page from refreshing
     event.preventDefault();
-    movieFormEl.addEventListener("submit",formSubmitHandler);
-    console.log("event");
+    // get value from input element
+    console.log(event.target);
+
+var movieName = searchTermEl.value.trim();
+console.log(movieName);
+    if (movieName) {getMovies(movieName); //change this to movie
+    movieInputEl.value = "";
+    } else {
+    alert("Please enter a real movie!");
+    }
 }
-//Api Fetch Functionality
+//button event listener
+movieInputEl.addEventListener("click", formSubmitHandler);
+
+var getMovies = function(title) {
+    // format the OMDB api url
+    var apiTitleSearch = "https://www.omdbapi.com/?t=" + title + "&apikey=76cc10c6";
+
+    fetch(apiTitleSearch).then(response => response.json())
+    .then(data => {
+      if (data.Response === "False"){
+        showError("Error", data.Error)
+      } else {
+        document.getElementById("error").classList.add("hidden")
+        displayMovieInfo(data)
+      }
+    })
+    .catch(function(error) {
+      showError("Error", "Cant Connect To Server")
+     });
 
 
+};
 
+var displayMovieInfo = function (data){
+  //clear old content
+ // movieTitleContainer.textContent = "";
+  document.getElementById('movie-title').textContent = data.Title
+  document.getElementById("movie-plot-text").textContent = data.Plot
+  document.getElementById("poster").src = data.Poster
 
+};
+var showError = function(title, message){
+  document.getElementById("error").classList.remove("hidden");
+  document.getElementById('error-title').textContent = title
+  document.getElementById('error-message').textContent = message
 
-
-//api fetch
-//>>>>>>> 3a161bc3bba70f66410208aa33a9e2cf25c08ee2
+}
