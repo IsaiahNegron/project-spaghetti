@@ -65,3 +65,12 @@ var showError = function(title, message){
 };
 
 
+
+
+
+var saveRecentlySearched = function(){
+  localStorage.setItem('recently-searched', searchTermEl.value)
+};
+ 
+movieInputEl.addEventListener("click", saveRecentlySearched);
+
