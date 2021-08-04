@@ -36,6 +36,8 @@ var getMovies = function(title) {
         showError("Error", data.Error)
       } else {
         document.getElementById("error").classList.add("hidden")
+        document.getElementById("hide-all-info").classList.remove("hidden-info");
+
         displayMovieInfo(data)
       }
     })
@@ -48,6 +50,7 @@ var getMovies = function(title) {
 
 var displayMovieInfo = function (data){
   
+  document.getElementById("hide-all-info").classList.remove("hidden-info");
   document.getElementById('movie-title').textContent = data.Title
   document.getElementById("movie-plot-text").textContent = data.Plot
   document.getElementById('rating').textContent = "RATED: " + data.Rated
