@@ -29,3 +29,13 @@ main {
 #search-results {
     margin: 0 auto;
 }
+
+html,
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+body > footer {
+    margin-top: auto;
+}
