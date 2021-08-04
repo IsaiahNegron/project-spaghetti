@@ -12,11 +12,13 @@ I WANT to see a movie or television shows rating and details about the movie
 
 SO THAT I can accurately choose a movie or show of my preference
 
+
+
 GIVEN I love movies and/or television shows
 
 WHEN I search a movie or show of my choice
 
-THEN I am given the movie or T.V shows critical rating and the movie description
+THEN I am given the movie or T.V shows, Title, description, and trailer
 
 ---
 ## Base Model Wireframe Example

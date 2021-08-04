@@ -1,114 +1,76 @@
-//Search engine code
+//Variables
 var movieInputEl = document.querySelector("#search-btn");
 var searchTermEl = document.querySelector("#search-input");
-var movieContainerEl = document.querySelector("#movie-container");
+var movieTitleContainer = document.querySelector ("#movie-details");
+var movieTitleText = document.querySelector ("#movie-title")
+var moviePlotContainer = document.querySelector("#movie-plot");
+var movieName = searchTermEl.value.trim();
 
-//Search engine code
 
 
 //this is the button function!!
 var formSubmitHandler = function(event) {
-event.preventDefault();
-// get value from input element
-console.log(event.target);
+    //Prevents page from refreshing
+    event.preventDefault();
+    // get value from input element
+    console.log(event.target);
+
 var movieName = searchTermEl.value.trim();
 console.log(movieName);
-if (movieName) {
-getMovies(movieName); //change this to movie
-movieInputEl.value = "";
-} else {
-  alert("Please enter a real movie!");
+    if (movieName) {getMovies(movieName); //change this to movie
+    movieInputEl.value = "";
+    } else {
+    alert("Please enter a real movie!");
+    }
 }
-}
-
 //button event listener
 movieInputEl.addEventListener("click", formSubmitHandler);
 
-
-
 var getMovies = function(title) {
     // format the OMDB api url
-    var apiUrl = "https://www.omdbapi.com/?t=" + title + "&apikey=76cc10c6";
+    var apiTitleSearch = "https://www.omdbapi.com/?t=" + title + "&plot=full&apikey=76cc10c6";
 
-    //need to call API for plot description and Rotten Tomatoes info as well
+    fetch(apiTitleSearch).then(response => response.json())
+    .then(data => {
+      if (data.Response === "False"){
+        showError("Error", data.Error)
+      } else {
+        document.getElementById("error").classList.add("hidden")
+        document.getElementById("hide-all-info").classList.remove("hidden-info");
+
+        displayMovieInfo(data)
+      }
+    })
+    .catch(function(error) {
+      showError("Error", "Cant Connect To Server")
+     });
+
+
+};
+
+var displayMovieInfo = function (data){
   
-    // make a request to the url
-    fetch(apiUrl).then(response => response.json()).then(data => console.log(data)) 
-    // request was successful
-    // if (response) {
-    //   console.log(data);
-    //   response.json().then(function(data) {
-    //     console.log(data);
-    //     displayMovies(data, movie);
-    //   });
-    // } else {
-    //   alert('Error: Movie Not Found'); //change this to text content
-    // }
+  document.getElementById("hide-all-info").classList.remove("hidden-info");
+  document.getElementById('movie-title').textContent = data.Title
+  document.getElementById("movie-plot-text").textContent = data.Plot
+  document.getElementById('rating').textContent = "RATED: " + data.Rated
+  document.getElementById("poster").src = data.Poster
 
-  .catch(function(error) {
-    alert("Unable to connect to IMDB"); //change this to text content
-  });
-}
+};
+var showError = function(title, message){
+  document.getElementById("error").classList.remove("hidden");
+  document.getElementById('error-title').textContent = title
+  document.getElementById('error-message').textContent = message
+
+};
 
 
 
 
 
+var saveRecentlySearched = function(){
+  localStorage.setItem('recently-searched', searchTermEl.value)
+};
+ 
+movieInputEl.addEventListener("click", saveRecentlySearched);
 
-
-//make this a movie thing
-var displayMovies = function(movie, searchTerm) {  //?? dont know about those parameters
-    // check if api returned any repos
-    if (movie.length === 0) {
-      movieContainerEl.textContent = "No movies found.";
-      return;
-    }
-    
-    //clear old content
-    movieContainerEl.textContent = "";
-    movieSearchTerm.textContent = searchTerm;
-   
-   
-   //might not need this for loop if we're just getting plot from OMDB
-    // loop over repos
-  for (var i = 0; i < movie.length; i++) {
-    // format repo name
-    var movieName = repos[i].owner.login + "/" + repos[i].name;
-  
-
-    
-    // create a container for each movie
-    var movieEl = document.createElement("a");
-    movieEl.classList = "list-item flex-row justify-space-between align-center";
-    movieEl.setAttribute("href", "./single-repo.html?repo=" + movieName);
-    // create a span element to hold repository name
-    var titleEl = document.createElement("span");
-    titleEl.textContent = movieName;
-  
-    // append to container
-    movieEl.appendChild(titleEl);
-  
-  // create a status element
-  var statusEl = document.createElement("span");
-  statusEl.classList = "flex-row align-center";
-  
-  
-  // append to container
-  repoEl.appendChild(statusEl);
-  
-    // append container to the dom
-    repoContainerEl.appendChild(repoEl);
-  }
-  };
-
-
-
-
-
-
-
-
-
-
-
-//api fetch
