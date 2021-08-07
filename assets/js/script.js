@@ -4,6 +4,7 @@ var searchTermEl = document.querySelector("#search-input");
 var movieTitleContainer = document.querySelector ("#movie-details");
 var movieTitleText = document.querySelector ("#movie-title")
 var moviePlotContainer = document.querySelector("#movie-plot");
+var movieGifContainer = document.querySelector("#gif");
 var movieName = searchTermEl.value.trim();
 
 
@@ -45,6 +46,24 @@ var getMovies = function(title) {
       showError("Error", "Cant Connect To Server")
      });
 
+     //gif info function
+
+
+     var apiGifSearch = "https://api.giphy.com/v1/gifs/search?api_key=BwBq75Ub675HrUWlBLfwv22qS2w25MDB&q=" + title + "&limit=25&offset=0&rating=g&lang=en";
+
+    fetch(apiGifSearch).then(response => response.json())
+    .then(data => {
+      if (data.Response === "False"){
+        showError("Error", data.Error)
+      } else {
+        
+
+        displayGifInfo(data)
+      }
+    })
+    .catch(function(error) {
+      showError("Error", "Cant Connect To Server")
+     });
 
 };
 
@@ -64,8 +83,10 @@ var showError = function(title, message){
   document.getElementById('error-message').textContent = message
 
 };
-
-
+//display gif info
+var displayGifInfo = function (data){
+  document.getElementById("gif").src = data.data[0].images.original.url
+};
 
 
 
