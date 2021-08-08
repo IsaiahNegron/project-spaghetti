@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
 </head>
 <body>
-    <header class="section is-4">
+    <header class="section is-small">
         <div class="hero-body">
           <p class="title is-1 has-text-centered has-text-white">
             Spaghetti Movie Search
@@ -35,43 +35,45 @@
           </article>
         </div>
     </header>
-  <section class="hidden-info" id="hide-all-info">
-    <section class="hero is-small is-primary">
-      <div class="hero-body has-background-white hsl(0,0%, 100%) has-text-centered ">
-        <p class="title is-1 has-text-black hsl(0,0%,4%)" id="movie-title">
-          Movie/Show Title
-        </p>
-        <p class="subtitle is-3 has-text-black hsl(0,0%,4%)" id="rating">
-          Rating
-        </p>
-      </div>
-    </section>
     <main>
+      <section class="hidden-info" id="hide-all-info">
+        <section class="hero is-small is-primary">
+          <div class="hero-body has-background-white hsl(0,0%, 100%) has-text-centered ">
+            <p class="title is-1 has-text-black hsl(0,0%,4%)" id="movie-title">
+              Movie/Show Title
+            </p>
+            <p class="subtitle is-3 has-text-black hsl(0,0%,4%)" id="rating">
+              Rating
+            </p>
+          </div>
+        </section>
         <section id="search-results" class="container columns level">
-          <div id="card" class="card column">
+          <div id="card" class="column">
             <div class="card-image">
-              <figure class="image is-1by1">
+              <figure class="image is-3by4">
                 <img src="" id="poster">
-              </figure> 
-              <figure class="image is-1by1">
-                <img src="" id="gif">
-              </figure> 
+              </figure>
             </div>
           </div>
           <div id="movie-description" class="movie-details column" class="is-three-fifths
           is-offset-one-fifth"> 
-            <h3 class="has-text-left title is-three">
+            <h3 class="has-text-centered title is-three">
               Movie Description
             </h3>
             <p class="has-text-left" id="movie-plot-text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores dignissimos libero aut unde facilis qui mollitia culpa sequi vero error velit sint minus corrupti eos consectetur, ut, recusandae vitae quibusdam?
             </p>
           </div>
+          <div class="gif-image column">
+            <figure class="image is-1by1">
+              <img src="" id="gif">
+            </figure> 
+          </div>
         </section>
     </main>
   </section>
-      <footer class="footer has-background-danger-dark hsl(348, 86%, 43%)">
-        <div class="content has-text-centered has-text-white hsl(0, 0%, 100%)">
+      <footer class="footer is-vcentered has-background-danger-dark">
+        <div class="content has-text-centered has-text-white">
           <p>
             Spaghetti Movies Website Created By Micah, Cody, David and Isaiah AKA (The Spaghetti Crew)
           </p>
