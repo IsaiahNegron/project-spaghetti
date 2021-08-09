@@ -11,19 +11,24 @@
 <body>
     <header class="section is-4">
         <div class="hero-body">
+
           <p class="title is-1 has-text-centered has-text-white">
             Spaghetti Movie Search
           </p>
+
+          <!-- search bar -->
           <div class="field has-addons">
             <div class="control is-expanded">
               <input id="search-input" class="input is-large" type="text" placeholder="Find a Movie/Show">
             </div>
+          <!-- search button-->
             <div class="control">
               <button id="search-btn" class="button is-large is-danger">
                 Search
               </button>
             </div>
           </div>
+          <!-- error - when search doesn't find a movie -->
           <article class="message is-danger hidden" id="error">
             <div class="message-header">
               <p id="error-title">Danger</p>
@@ -35,54 +40,80 @@
           </article>
         </div>
     </header>
-  <section class="hidden-info" id="hide-all-info">
-    <section class="hero is-small is-primary">
-      <div class="hero-body has-background-white hsl(0,0%, 100%) has-text-centered ">
-        <p class="title is-1 has-text-black hsl(0,0%,4%)" id="movie-title">
-          Movie/Show Title
-        </p>
-        <p class="subtitle is-3 has-text-black hsl(0,0%,4%)" id="rating">
-          Rating
-        </p>
-      </div>
-    </section>
-    <main>
-        <section id="search-results" class="container columns level">
-          <div id="card" class="card column">
-            <div class="card-image">
-              <figure class="image is-1by1">
-                <img src="" id="poster">
-              </figure> 
-              <figure class="image is-1by1">
-                <img src="" id="gif">
-              </figure> 
+  <main>
+
+        <!-- title -->
+      <section class="hidden-info" id="hide-all-info">
+        <section class="hero is-small is-primary">
+          <div class="notification">
+            <div class="hero-body has-text-centered ">
+              <p class="title is-1 has-text-black hsl(0,0%,4%)" id="movie-title">
+                Movie/Show Title
+              </p>
+              <p class="subtitle is-3 has-text-black hsl(0,0%,4%)" id="rating">
+                Rating
+              </p>
             </div>
+          </div>  
+        </section>
+
+      <!-- search results -->
+      <section id="search-results" class="section">
+        <div class="container">
+          <div class="columns grid-xl">
+            
+              <!-- poster -->
+            <div class="column">
+              <div class="notification">
+                <figure class="image is-full">
+                  <img src="" id="poster">
+                </figure>
+              </div> 
+            </div>
+
+            <!-- details -->  
+            <div class="column">
+              <div class="notification">
+                  <summary id="movie-description" class="movie-details column" class="is-three-fifths is-offset-one-fifth"> 
+                <h3 class="has-text-left title is-three">
+                  Movie Description
+                </h3>
+                <p class="has-text-left" id="movie-plot-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores dignissimos libero aut unde facilis qui mollitia culpa sequi vero error velit sint minus corrupti eos consectetur, ut, recusandae vitae quibusdam?
+                </p>
+                  </summary>
+              </div>
+            </div>
+              
+              <!-- gif -->
+            <div class="column">
+              <div class="notification">
+                  <figure class="image is-full">
+                    <img src="" id="gif">
+                  </figure> 
+              </div>  
+            </div>
+
           </div>
-          <div id="movie-description" class="movie-details column" class="is-three-fifths
-          is-offset-one-fifth"> 
-            <h3 class="has-text-left title is-three">
-              Movie Description
-            </h3>
-            <p class="has-text-left" id="movie-plot-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores dignissimos libero aut unde facilis qui mollitia culpa sequi vero error velit sint minus corrupti eos consectetur, ut, recusandae vitae quibusdam?
+        </div>
+      </section>
+
+      
+  </main>
+    </section>
+        <footer class="footer has-background-danger-dark hsl(348, 86%, 43%)">
+          <div class="content has-text-centered has-text-white hsl(0, 0%, 100%)">
+            <p>
+              Spaghetti Movies Website Created By Micah, Cody, David and Isaiah AKA (The Spaghetti Crew)
+            </p>
+            <p>
+              Bulma by Jeremy Thomas. The source code is licensed MIT. The website content
+              is licensed CC BY NC SA 4.0.
             </p>
           </div>
-        </section>
-    </main>
-  </section>
-      <footer class="footer has-background-danger-dark hsl(348, 86%, 43%)">
-        <div class="content has-text-centered has-text-white hsl(0, 0%, 100%)">
-          <p>
-            Spaghetti Movies Website Created By Micah, Cody, David and Isaiah AKA (The Spaghetti Crew)
-          </p>
-          <p>
-            Bulma by Jeremy Thomas. The source code is licensed MIT. The website content
-            is licensed CC BY NC SA 4.0.
-          </p>
-        </div>
-      </footer>
-    <script src="./assets/js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
-</body>
-</html>
+        </footer>
+      <script src="./assets/js/script.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+  </body>
+  </html>
