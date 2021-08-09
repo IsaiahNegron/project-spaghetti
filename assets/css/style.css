@@ -10,6 +10,7 @@
     --italy-white: rgb(244, 245, 240);
 }
 
+/* header background color */
 header {
     background-color: var(--italy-green);
 }
